@@ -6,6 +6,7 @@ import com.samples.modelling.chess.Color;
 import com.samples.modelling.chess.PathStyle;
 import com.samples.modelling.chess.chessmen.ChessMan;
 import com.samples.modelling.chess.exceptions.InvalidMoveException;
+import com.samples.modelling.chess.exceptions.InvalidPositionException;
 import com.samples.modelling.chess.exceptions.PostionNotVacantException;
 
 public class Board {
@@ -17,7 +18,7 @@ public class Board {
 		boardStructure = new Block[n][n];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (i + j % 2 == 0)
+				if ((i + j) % 2 == 0)
 					boardStructure[i][j] = new Block(Color.WHITE);
 				else
 					boardStructure[i][j] = new Block(Color.BLACK);
@@ -90,8 +91,8 @@ public class Board {
 
 	private boolean checkPathVacant(List<Position> path) {
 		// TODO Auto-generated method stub
-		for (Position position : path) {
-			if (!getBlock(position).isVacant()) {
+		for (int i = 1; i < path.size(); i++) {
+			if (!getBlock(path.get(i)).isVacant()) {
 				return false;
 			}
 		}
@@ -99,6 +100,26 @@ public class Board {
 	}
 
 	private Block getBlock(Position aPos) {
+		if(aPos.getxIndex()<0||aPos.getxIndex()>boardStructure.length||aPos.getyIndex()<0||aPos.getyIndex()>boardStructure.length)
+		{
+			throw new InvalidPositionException("The provided position "+aPos+" is not a valid position in board. ");
+		}
 		return boardStructure[aPos.getxIndex()][aPos.getyIndex()];
+	}
+
+	public void print() {
+		// TODO Auto-generated method stub
+		System.out.println(
+				"****************************************************************************************************************************************************************************************************");
+		for (int i = 0; i < boardStructure.length; i++) {
+			for (int j = 0; j < boardStructure.length; j++) {
+				System.out.print(boardStructure[i][j]);
+				System.out.print("\t\t\t");
+			}
+			System.out.println();
+		}
+		System.out.println(
+				"****************************************************************************************************************************************************************************************************");
+		System.out.println();
 	}
 }

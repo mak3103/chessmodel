@@ -49,4 +49,9 @@ public class Rook implements ChessMan {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return color.toString()+"R";
+	}
 }

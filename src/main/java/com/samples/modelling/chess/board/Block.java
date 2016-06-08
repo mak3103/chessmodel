@@ -3,22 +3,21 @@ package com.samples.modelling.chess.board;
 import com.samples.modelling.chess.Color;
 import com.samples.modelling.chess.chessmen.ChessMan;
 
-
 /**
- * @author Mayank.
- * This class represents one square block in the chess board.
+ * @author Mayank. This class represents one square block in the chess board.
  *
  */
 public class Block {
 	/**
 	 * 
-	 * The color of the square. 
+	 * The color of the square.
 	 */
 	private final Color color;
-	
+
 	/**
 	 * 
-	 *The piece that is placed in the square. A null value means the square block is vacant. 
+	 * The piece that is placed in the square. A null value means the square
+	 * block is vacant.
 	 */
 	private ChessMan chessman;
 
@@ -39,25 +38,28 @@ public class Block {
 	}
 
 	/**
-	 * @param chessman the chessman to set
+	 * @param chessman
+	 *            the chessman to set
 	 */
 	public void setChessman(ChessMan chessman) {
 		this.chessman = chessman;
 	}
 
 	/**
-	 * The method tells if the current block is occupied or not. 
+	 * The method tells if the current block is occupied or not.
+	 * 
 	 * @return
 	 */
-	public boolean isVacant()
-	{
-		if(chessman==null)
+	public boolean isVacant() {
+		if (chessman == null)
 			return true;
-		else return false;
+		else
+			return false;
 	}
-	
+
 	/**
-	 * The contructor for creating a vacant block. 
+	 * The contructor for creating a vacant block.
+	 * 
 	 * @param aColor
 	 */
 	public Block(Color aColor) {
@@ -78,4 +80,11 @@ public class Block {
 		return chessman;
 	}
 
+	@Override
+	public String toString() {
+		if (chessman == null)
+			return color.toString();
+		else
+			return color.toString() + chessman;
+	}
 }

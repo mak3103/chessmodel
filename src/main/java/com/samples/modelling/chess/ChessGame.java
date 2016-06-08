@@ -9,8 +9,10 @@ public class ChessGame {
 	
 	public static void main(String[] args) {
 		Board board = new Board(8);
-		board.putChessMan(new Rook(Color.BLACK), new Position("1-3"));
-		board.putChessMan(new Rook(Color.BLACK), new Position("1-4"));
-
+		board.putChessMan(new Rook(Color.BLACK), new Position("0-7"));
+		board.putChessMan(new Rook(Color.WHITE), new Position("3-7"));
+		board.print();
+		board.move(new Position("0-7"), new Position("7-7"));
+		board.print();
 	}
 }

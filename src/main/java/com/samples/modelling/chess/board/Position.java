@@ -6,13 +6,28 @@ import java.util.List;
 import com.samples.modelling.chess.PathStyle;
 import com.samples.modelling.chess.exceptions.InvalidPathStyleException;
 
+/**
+ * @author Mayank
+ * The class representing a position on the chess board.
+ *
+ */
 public class Position {
 
+	/**
+	 * The x coordinate.
+	 */
 	private final int xIndex;
+
+	/**
+	 * The y coordinate.
+	 */
 	private final int yIndex;
 
+	/**
+	 * Accepts a string separating the x and y coordinates by a hyphen. 
+	 * @param aPos
+	 */
 	public Position(String aPos) {
-		// TODO Auto-generated constructor stub
 		String[] indices = aPos.split("-");
 		xIndex = Integer.parseInt(indices[0]);
 		yIndex = Integer.parseInt(indices[1]);
@@ -93,6 +108,7 @@ public class Position {
 			{
 				displacement = Math.abs(aStart.getxIndex()-aEnd.getxIndex());
 			}
+			break;
 			case SLANTING : throw new UnsupportedOperationException("The slanting path style is not yet supported."); 
 				
 			case HORSEJUMP : throw new UnsupportedOperationException("The horsejump path style is not yet supported."); 
@@ -126,11 +142,18 @@ public class Position {
 					path.add(new Position(i+"-"+aStart.getyIndex()));
 				}
 			}
+			break;
 			case SLANTING : throw new UnsupportedOperationException("The slanting path style is not yet supported."); 
 				
 			case HORSEJUMP : throw new UnsupportedOperationException("The horsejump path style is not yet supported."); 
 		
 		}
 		return path;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return xIndex+"-"+yIndex;
 	}
 }

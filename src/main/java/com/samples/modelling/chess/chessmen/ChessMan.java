@@ -13,6 +13,12 @@ import com.samples.modelling.chess.PathStyle;
 public interface ChessMan {
 
 	/**
+	 * The getter method for the unique id/name of the chessman.
+	 * @return the String id.
+	 */
+	public String getId();
+	
+	/**
 	 * 
 	 * @return - the color of the chessman.
 	 */

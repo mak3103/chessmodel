@@ -13,6 +13,17 @@ import com.samples.modelling.chess.PathStyle;
  */
 public class Rook implements ChessMan {
 
+	public String getId() {
+		return id;
+	}
+
+
+	public List<PathStyle> getPathStyles() {
+		return pathStyles;
+	}
+
+	private final String id;
+	
 	/**
 	 * The color of the rook.
 	 */
@@ -27,8 +38,9 @@ public class Rook implements ChessMan {
 	 * 
 	 * @param aColor - The color of the rook to be created.
 	 */
-	public Rook(Color aColor) {
+	public Rook(String aId, Color aColor) {
 
+		id=aId;
 		color = aColor;
 		pathStyles = new ArrayList<PathStyle>();
 		pathStyles.add(PathStyle.STRAIGHT);
@@ -54,4 +66,5 @@ public class Rook implements ChessMan {
 		// TODO Auto-generated method stub
 		return color.toString()+"R";
 	}
+	
 }

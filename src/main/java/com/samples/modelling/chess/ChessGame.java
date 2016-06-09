@@ -44,9 +44,19 @@ public class ChessGame {
 	}
 
 	/**
+	 * Getter for game board.
+	 * @return the board object of the game.
+	 */
+	public Board getBoard() {
+		return board;
+	}
+
+	/**
 	 * Initializes the board and places the chessmen on the board at their positions.
 	 */
 	public void initilizeGame() {
+		board.reset();
+		
 		// Initializing Rook.
 		board.putChessMan(new Rook("WR1", Color.WHITE), new Position("0-0"));
 		board.putChessMan(new Rook("WR2", Color.WHITE), new Position("0-" + (board.getSize() - 1)));

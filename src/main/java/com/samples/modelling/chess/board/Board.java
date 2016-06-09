@@ -186,4 +186,19 @@ public class Board {
 	public int getSize() {
 		return boardStructure.length;
 	}
+	
+	/**
+	 * The method resets the board.
+	 */
+	public void reset()
+	{
+		for (int i = 0; i < boardStructure.length; i++) {
+			for (int j = 0; j < boardStructure.length; j++) {
+				if ((i + j) % 2 == 0)
+					boardStructure[i][j] = new Block(Color.WHITE);
+				else
+					boardStructure[i][j] = new Block(Color.BLACK);
+			}
+	}
+}
 }
